@@ -42,7 +42,7 @@ pipeline{
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
                         repository: 'Harshlab-Snapshot', 
-                        version: '${version}'
+                        version: '${Version}'
 
               }
           }
