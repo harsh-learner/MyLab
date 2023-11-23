@@ -31,19 +31,23 @@ pipeline{
        // Stage3 : Publish to Nexus
           stage('Publishing'){
               steps{
+                  script{
+                  def NexusRepo = Version.endsWith("Snapshot") ? "HarshLab-Snapshot" : "HarshLab-Release"
+                  
                   nexusArtifactUploader artifacts: 
                       [[artifactId: "${ArtifactId}", 
                         classifier: '', 
-                        file: 'target/VinayDevOpsLab-0.0.3-SNAPSHOT.war', 
+                        file: 'target/${ArtifactId}-${Version}.war', 
                         type: 'war']], 
                         credentialsId: 'nexus', 
                         groupId: "${GroupId}", 
                         nexusUrl: '65.0.178.13:8081', 
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
-                        repository: 'Harshlab-Snapshot', 
+                        repository: "${NexusRepo}", 
                         version: "${Version}"
 
+                  }
               }
           }
 
