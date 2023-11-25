@@ -50,6 +50,22 @@ pipeline{
                   }
               }
           }
+        // Stage4: Deployment to Tomcat
+           stage('Deployment'){
+               steps{
+                   sshPublisher(publishers: [sshPublisherDesc(configName: 'Ansible-controller', 
+                   transfers: [sshTransfer(cleanRemote: false, excludes: '', 
+                   execCommand: '''ansible-playbook /opt/playbooks/downloadanddeploy.yaml -i /opt/playbooks/hosts''', 
+                   execTimeout: 120000, 
+                   flatten: false, 
+                   makeEmptyDirs: false, 
+                   noDefaultExcludes: false, 
+                   patternSeparator: '[, ]+', 
+                   remoteDirectory: '', remoteDirectorySDF: false, removePrefix: '', sourceFiles: '')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+               }
+           }
+               
+                   
 
         
         
