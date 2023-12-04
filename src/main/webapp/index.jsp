@@ -55,6 +55,7 @@
         <p>This is Harsh DevOps AWS Lab</p>
         <p><a class="btn btn-primary btn-lg" role="button">Learn &raquo;</a></p>
         <p><a class="btn btn-primary btn-lg" role="button">Enroll!! more &raquo;</a></p>
+        <p><a class="btn btn-primary btn-lg" role="button">Project!! more &raquo;</a></p>
     </div>
 </div>
 
